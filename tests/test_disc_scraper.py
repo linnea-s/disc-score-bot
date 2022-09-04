@@ -2,6 +2,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), os.getcwd())))
 from context import scrapers
+import pytest
 
 def check_disc(disc):
     if not disc.name:
@@ -48,6 +49,7 @@ def test_discimport_disc_scraper():
     search = "firebird"
     scrape_and_check(scrapers.discimport.DiscScraper(search))
 
+@pytest.mark.selenium
 def test_discinstock_disc_scraper():
     search = "firebird"
     scrape_and_check(scrapers.discinstock.DiscScraper(search))
@@ -100,6 +102,7 @@ def test_sunesport_disc_scraper():
     search = "firebird"
     scrape_and_check(scrapers.sunesport.DiscScraper(search))
 
+@pytest.mark.selenium
 def test_xxl_disc_scraper():
     search = "harp"
     scrape_and_check(scrapers.xxl.DiscScraper(search))
